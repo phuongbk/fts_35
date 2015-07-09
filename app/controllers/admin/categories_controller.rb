@@ -14,7 +14,8 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     if @category.save
-      redirect_to admin_categories_url, success: t(".flash_add")
+      redirect_to admin_categories_url, success:
+        t("admin.categories.index.flash_add")
     else
       reder :new
     end
@@ -25,7 +26,8 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @category.update_attributes category_params
-      redirect_to admin_category_url, success: t(".flash_editted")
+      redirect_to admin_category_url, success:
+        t("admin.categories.index.flash_editted")
     else
       render :edit
     end
@@ -33,9 +35,11 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      redirect_to admin_categories_url, success: t("flash_deleted")
+      redirect_to admin_categories_url, success:
+        t("admin.categories.index.flash_deleted")
     else
-      redirect_to admin_categories_url, danger: t("flash_not_delete")
+      redirect_to admin_categories_url, danger:
+        t("admin.categories.index.flash_not_delete")
     end
   end
 

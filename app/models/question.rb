@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   has_many :exams, through: :results
   belongs_to :category
 
-  scope :some, ->{order("RAND()").limit Settings.exams.questions_per_exam}
+  scope :some, ->{order("RANDOM()").limit Settings.exams.questions_per_exam}
 
   accepts_nested_attributes_for :answers,
     reject_if: ->attributes{attributes["content"].blank?},
